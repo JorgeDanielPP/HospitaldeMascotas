@@ -20,6 +20,12 @@ namespace HospitaldeMascotas.Controllers
             List<Mascota> lista = await _appDbContext.Mascota.ToListAsync();  
           return View(lista);
         }
-       
+
+        [HttpGet]
+        public IActionResult Nuevo()
+        {
+           return View();
+        }
+
     }
 }
