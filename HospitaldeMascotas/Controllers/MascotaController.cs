@@ -27,5 +27,13 @@ namespace HospitaldeMascotas.Controllers
            return View();
         }
 
+        [HttpPost]
+        public async Task<IActionResult> Nuevo(Mascota mascota)
+        {
+            await _appDbContext.Mascota.AddAsync(mascota);
+            await _appDbContext.SaveChangesAsync();
+            return RedirectToAction(nameof(Lista));
+        }
+
     }
 }
